@@ -8,17 +8,17 @@ public class SelectionManager : MonoBehaviour
     [SerializeField] string selectableTag = "Selectable";
     [SerializeField] Material highlightMaterial;
     [SerializeField] Material defaultMaterial;
-    [SerializeField] GameObject interactText;
+    [SerializeField] GameObject interactText, doorOpenText;
     private Transform _selection;
     UnityEvent onInteract;
     public bool keyPicked = false;
+    bool doorOpened = false;
     private void Update() {
 
         //klo udah gak diarahin
         if (_selection != null) {
-            // var selectionRenderer = _selection.GetComponent<Renderer>();
-            // selectionRenderer.material = defaultMaterial;
             interactText.SetActive(false);
+            doorOpenText.SetActive(false);
             _selection = null;
         }
 
@@ -36,11 +36,7 @@ public class SelectionManager : MonoBehaviour
                         onInteract.Invoke();
                     }
                 }
-
-
-
             }
-
             if (selection.CompareTag("Key")) {
                 interactText.SetActive(true);
                 if (hit.collider.GetComponent<Interactable>() != false) {
@@ -51,7 +47,6 @@ public class SelectionManager : MonoBehaviour
                     }
                 }
             }
-
             if (selection.CompareTag("Cube Merah")) {
                 interactText.SetActive(true);
                 if (hit.collider.GetComponent<Interactable>() != false) {
@@ -61,7 +56,6 @@ public class SelectionManager : MonoBehaviour
                     }
                 }
             }
-
             if (selection.CompareTag("Cube Hijau")) {
                 interactText.SetActive(true);
                 if (hit.collider.GetComponent<Interactable>() != false) {
@@ -71,10 +65,23 @@ public class SelectionManager : MonoBehaviour
                     }
                 }
             }
-                // var selectionRenderer = selection.GetComponent<Renderer>();
-                // if (selectionRenderer != null) {
-                //      selectionRenderer.material = highlightMaterial;
-                // }
+            if (selection.CompareTag("Door")) {
+                doorOpenText.SetActive(true);
+                if (hit.collider.GetComponent<Interactable>() != false) {
+                    onInteract = hit.collider.GetComponent<Interactable>().onInteract;
+                    if (Input.GetKeyDown(KeyCode.E)) {
+                        if (!doorOpened) {
+                            onInteract.Invoke();
+                            FindObjectOfType<AnimationManager>().anim.Play("OpenDoorAnimation");
+                            doorOpened = true;
+                        } else if (doorOpened) {
+                            onInteract.Invoke();
+                            FindObjectOfType<AnimationManager>().anim.Play("CloseDoorAnimation");
+                            doorOpened = false;
+                        }
+                    } 
+                }
+            }
                 _selection = selection;
         }
     }

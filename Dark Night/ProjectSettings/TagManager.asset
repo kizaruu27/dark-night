@@ -8,6 +8,7 @@ TagManager:
   - Key
   - Cube Merah
   - Cube Hijau
+  - Door
   layers:
   - Default
   - TransparentFX

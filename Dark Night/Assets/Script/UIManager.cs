@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    [SerializeField] Text keyUI, objectDescription;
+    [SerializeField] Text keyUI, objectDescription, objectInteraction;
     KeyManager keyManager;
 
     private void Awake() {
