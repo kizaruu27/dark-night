@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Selectable
+  - Key
+  - Cube Merah
+  - Cube Hijau
   layers:
   - Default
   - TransparentFX
