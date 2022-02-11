@@ -5,8 +5,7 @@ using UnityEngine;
 public class AnimationManager : MonoBehaviour
 {
     public Animator anim;
-    string doorOpenParameter = "DoorOpen";
-    string doorClosedParameter = "DoorClosed";
+    public Objects Door;
 
     // Start is called before the first frame update
     void Awake()
@@ -14,11 +13,19 @@ public class AnimationManager : MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
-    public void DoorOpenAnimation() {
-        anim.SetTrigger(doorOpenParameter);
+    public void openDoor () {
+        anim.Play(Door.doorOpenParameter);
     }
 
-    public void DoorClosedAnimation() {
-        anim.SetTrigger(doorClosedParameter);
+    public void closeDoor() {
+        anim.Play(Door.doorCloseParameter);
+    }
+
+    public void OpenPuzzleDoor() {
+        anim.Play(Door.openPuzzleDoorParameter);
+    }
+
+    public void ClosePuzzleDoor() {
+        anim.Play(Door.closePuzzleDoorParameter);
     }
 }

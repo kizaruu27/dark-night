@@ -5,20 +5,23 @@ using UnityEngine.Events;
 
 public class SelectionManager : MonoBehaviour
 {
-    [SerializeField] string selectableTag = "Selectable";
-    [SerializeField] Material highlightMaterial;
-    [SerializeField] Material defaultMaterial;
-    [SerializeField] GameObject interactText, doorOpenText;
+    public Objects door;
     private Transform _selection;
     UnityEvent onInteract;
-    public bool keyPicked = false;
-    bool doorOpened = false;
+    UIManager uimanager;
+    AnimationManager animationManager;
+
+    private void Awake() {
+        uimanager = FindObjectOfType<UIManager>();
+        //animationManager = FindObjectOfType<AnimationManager>();
+        door.doorOpened = false;
+    }
+
     private void Update() {
 
         //klo udah gak diarahin
         if (_selection != null) {
-            interactText.SetActive(false);
-            doorOpenText.SetActive(false);
+            uimanager.objectInteraction.gameObject.SetActive(false);
             _selection = null;
         }
 
@@ -28,8 +31,9 @@ public class SelectionManager : MonoBehaviour
         //mau ngarahin ke objek
         if (Physics.Raycast(ray, out hit)) {
             var selection = hit.transform;
-            if (selection.CompareTag(selectableTag)){
-                interactText.SetActive(true);
+
+            if (selection.CompareTag("Selectable")){
+                uimanager.ObjectInteraction();
                 if (hit.collider.GetComponent<Interactable>() != false) {
                     onInteract = hit.collider.GetComponent<Interactable>().onInteract;
                     if (Input.GetKey(KeyCode.E)) {
@@ -37,49 +41,29 @@ public class SelectionManager : MonoBehaviour
                     }
                 }
             }
-            if (selection.CompareTag("Key")) {
-                interactText.SetActive(true);
-                if (hit.collider.GetComponent<Interactable>() != false) {
-                    onInteract = hit.collider.GetComponent<Interactable>().onInteract;
-                    if (Input.GetKey(KeyCode.E)) {
-                        keyPicked = true;
-                        onInteract.Invoke();
-                    }
-                }
-            }
-            if (selection.CompareTag("Cube Merah")) {
-                interactText.SetActive(true);
-                if (hit.collider.GetComponent<Interactable>() != false) {
-                    onInteract = hit.collider.GetComponent<Interactable>().onInteract;
-                    if (Input.GetKey(KeyCode.E)) {
-                        onInteract.Invoke();
-                    }
-                }
-            }
-            if (selection.CompareTag("Cube Hijau")) {
-                interactText.SetActive(true);
-                if (hit.collider.GetComponent<Interactable>() != false) {
-                    onInteract = hit.collider.GetComponent<Interactable>().onInteract;
-                    if (Input.GetKey(KeyCode.E)) {
-                        onInteract.Invoke();
-                    }
-                }
-            }
+
             if (selection.CompareTag("Door")) {
-                doorOpenText.SetActive(true);
+                
+                if (door.doorOpened == false) {
+                    uimanager.doorOpenInteraction();
+                } else {
+                    uimanager.doorCloseInteraction();
+                }
+
                 if (hit.collider.GetComponent<Interactable>() != false) {
                     onInteract = hit.collider.GetComponent<Interactable>().onInteract;
+                    animationManager = hit.collider.GetComponent<AnimationManager>();
                     if (Input.GetKeyDown(KeyCode.E)) {
-                        if (!doorOpened) {
+                        if (door.doorOpened == false) {
                             onInteract.Invoke();
-                            FindObjectOfType<AnimationManager>().anim.Play("OpenDoorAnimation");
-                            doorOpened = true;
-                        } else if (doorOpened) {
+                            animationManager.openDoor();
+                            door.doorOpened = true;
+                        } else if (door.doorOpened == true) {
                             onInteract.Invoke();
-                            FindObjectOfType<AnimationManager>().anim.Play("CloseDoorAnimation");
-                            doorOpened = false;
+                            animationManager.closeDoor();
+                            door.doorOpened = false;
                         }
-                    } 
+                    }
                 }
             }
                 _selection = selection;

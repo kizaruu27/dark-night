@@ -5,30 +5,44 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    [SerializeField] Text keyUI, objectDescription, objectInteraction;
-    KeyManager keyManager;
+    public Objects Key, objects, door, puzzleDoor;
+    public Text keyUI, description, objectInteraction, DoorPuzzleMessege;
+    
 
-    private void Awake() {
-        keyManager = FindObjectOfType<KeyManager>();
-    }
     private void Update() {
         KeyUI();
     }
 
     void KeyUI() {
-        keyUI.text = "Owned Key: " + keyManager.keyCount;
-    }
-
-    public void RedCubeDesc() {
-        objectDescription.text = "This is a red cube";
-        Invoke("turnOffDesc", 2);
-    }
-    public void GreenCubeDesc() {
-        objectDescription.text = "This is a green cube";
-        Invoke("turnOffDesc", 2);
+        keyUI.text = "Owned Key: " + Key.keyCount;
     }
 
     void turnOffDesc() {
-        objectDescription.gameObject.SetActive(false);
+        description.gameObject.SetActive(false);
+    }
+
+    public void ObjectInteraction () {
+        objectInteraction.gameObject.SetActive(true);
+        objectInteraction.text = objects.objectInteractionText;
+    }
+
+    public void doorOpenInteraction () {
+        objectInteraction.gameObject.SetActive(true);
+        objectInteraction.text = door.openDoorInteraction;
+    }
+
+    public void doorCloseInteraction () {
+        objectInteraction.gameObject.SetActive(true);
+        objectInteraction.text = door.closeDoorInteraction;
+    }
+
+    public void DoorMessege() {
+        DoorPuzzleMessege.gameObject.SetActive(true);
+        DoorPuzzleMessege.text = puzzleDoor.doorMessege;
+        Invoke("disableMessege", 2);
+    }
+
+    void disableMessege() {
+        DoorPuzzleMessege.gameObject.SetActive(false);
     }
 }

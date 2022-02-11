@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class KeyManager : MonoBehaviour
 {
-   [SerializeField] public int keyCount = 0;
-   private void Update() {
-       if (FindObjectOfType<SelectionManager>().keyPicked == true) {
-           keyCount++;
-           FindObjectOfType<SelectionManager>().keyPicked = false;
-       }
-   }
+    public Objects Key;
+    int keyOwned = 0;
+
+    //[SerializeField] public int keyCount = 0;
+    private void Start() {
+        Key.keyCount = keyOwned;
+    }
+
+    public void pickUpKey() {
+        Key.keyCount++;
+    }
 }
