@@ -2055,7 +2055,6 @@ GameObject:
   - component: {fileID: 646230898}
   - component: {fileID: 646230897}
   - component: {fileID: 646230896}
-  - component: {fileID: 646230894}
   m_Layer: 8
   m_Name: Music Box 2
   m_TagString: Selectable
@@ -2077,20 +2076,6 @@ Transform:
   m_Father: {fileID: 168364538}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &646230894
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 646230892}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5215af6660508e4cb7845ab79b98d92, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  clips: []
-  Key: {fileID: 0}
 --- !u!54 &646230896
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3085,9 +3070,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5215af6660508e4cb7845ab79b98d92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clips:
-  - {fileID: 8300000, guid: 0d7c43c0af655374391a915c88c0cd0d, type: 3}
-  - {fileID: 8300000, guid: e1fa8100c1bbe1047832332d67ddb062, type: 3}
+  musicPuzzle: {fileID: 11400000, guid: 765a9461ec98c994385e4ac44082791b, type: 2}
   Key: {fileID: 156841698}
 --- !u!82 &829437157
 AudioSource:
@@ -5870,7 +5853,6 @@ GameObject:
   - component: {fileID: 1695228566}
   - component: {fileID: 1695228570}
   - component: {fileID: 1695228571}
-  - component: {fileID: 1695228572}
   m_Layer: 8
   m_Name: Music Box 1
   m_TagString: Selectable
@@ -6007,20 +5989,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1695228572
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1695228565}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5215af6660508e4cb7845ab79b98d92, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  clips: []
-  Key: {fileID: 0}
 --- !u!1 &1701550073
 GameObject:
   m_ObjectHideFlags: 0

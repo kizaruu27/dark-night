@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class AudioPuzzle : MonoBehaviour
 {
-    [SerializeField] AudioClip[] clips;
+    public Objects musicPuzzle;
     [SerializeField] GameObject Key;
     AudioSource aSource;
-    bool musicOneisPlayed = false;
-    bool musicTwoisPlayed = false;
 
     private void Start() {
         aSource = GetComponent<AudioSource>();
+        musicPuzzle.musicOneisPlayed = false;
+        musicPuzzle.musicTwoisPlayed = false;
     }
 
     private void Update() {
@@ -20,18 +20,18 @@ public class AudioPuzzle : MonoBehaviour
 
     public void playMusicOne() {
         aSource.Stop();
-        aSource.PlayOneShot(clips[0]);
-        musicOneisPlayed = true;
+        aSource.PlayOneShot(musicPuzzle.clips[0]);
+        musicPuzzle.musicOneisPlayed = true;
     }
 
     public void playMusicTwo() {
         aSource.Stop();
-        aSource.PlayOneShot(clips[1]);
-        musicTwoisPlayed = true;
+        aSource.PlayOneShot(musicPuzzle.clips[1]);
+        musicPuzzle.musicTwoisPlayed = true;
     }
 
     public void Validation() {
-        if (musicOneisPlayed && musicTwoisPlayed) {
+        if (musicPuzzle.musicOneisPlayed && musicPuzzle.musicTwoisPlayed) {
             Key.SetActive(true);
         }
     }

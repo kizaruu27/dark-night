@@ -28,4 +28,9 @@ public class Objects : ScriptableObject {
     public string ans;
     public bool isUsingKeypad;
 
+    [Header("Music Puzzle")]
+    public AudioClip[] clips;
+    public bool musicOneisPlayed;
+    public bool musicTwoisPlayed;
+
 }
