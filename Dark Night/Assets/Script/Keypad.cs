@@ -5,17 +5,15 @@ using UnityEngine.UI;
 
 public class Keypad : MonoBehaviour
 {
+    public Objects keyPadObject;
     [SerializeField] Text Answer;
-    string ans = "123";
-    public int digits = 0;
-    PuzzleManager puzzleManager;
 
     public void Number(int number) {
         Answer.text += number.ToString();
     }
 
     public void Execute() {
-        if (Answer.text == ans) {
+        if (Answer.text == keyPadObject.ans) {
             Debug.Log("Password Benar");
         } else {
             Debug.Log("Password Salah");

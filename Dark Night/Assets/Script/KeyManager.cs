@@ -6,8 +6,6 @@ public class KeyManager : MonoBehaviour
 {
     public Objects Key;
     int keyOwned = 0;
-
-    //[SerializeField] public int keyCount = 0;
     private void Start() {
         Key.keyCount = keyOwned;
     }

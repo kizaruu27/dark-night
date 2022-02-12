@@ -2,12 +2,11 @@
 
 public class PuzzleManager : MonoBehaviour
 {
-     public Objects puzzle, door;
+     public Objects puzzle, door, keyPadObject;
      [SerializeField] GameObject doorOpen, doorClosed;
      public GameObject Keypad;
-     UIManager uIManager;
+     UIManager uIManager; 
      AnimationManager anim;
-     public bool isUsingKeypad;
 
     private void Start() {
         Time.timeScale = 1;
@@ -17,6 +16,8 @@ public class PuzzleManager : MonoBehaviour
 
         puzzle.puzzleKey = 0;
         puzzle.puzzleKeyPicked = false;
+
+        keyPadObject.isUsingKeypad = false;
     }
 
     private void Update() {
@@ -38,7 +39,7 @@ public class PuzzleManager : MonoBehaviour
     }
 
     public void DisplayKeypad() {
-        isUsingKeypad = true;
+        keyPadObject.isUsingKeypad = true;
         Keypad.SetActive(true);
         Time.timeScale = 0;
         Cursor.lockState = CursorLockMode.None;
@@ -46,8 +47,8 @@ public class PuzzleManager : MonoBehaviour
     }
 
     void DisableKeypad() {
-        if (Input.GetKey(KeyCode.Escape) && isUsingKeypad) {
-            isUsingKeypad = false;
+        if (Input.GetKey(KeyCode.Escape) && keyPadObject.isUsingKeypad) {
+            keyPadObject.isUsingKeypad = false;
             Keypad.SetActive(false);
             Time.timeScale = 1;
             Cursor.lockState = CursorLockMode.Locked;

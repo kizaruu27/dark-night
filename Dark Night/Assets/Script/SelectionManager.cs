@@ -29,7 +29,7 @@ public class SelectionManager : MonoBehaviour
         RaycastHit hit;
 
         //mau ngarahin ke objek
-        if (Physics.Raycast(ray, out hit)) {
+        if (Physics.Raycast(ray, out hit, 2)) {
             var selection = hit.transform;
 
             if (selection.CompareTag("Selectable")){
