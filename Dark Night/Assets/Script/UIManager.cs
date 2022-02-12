@@ -42,6 +42,10 @@ public class UIManager : MonoBehaviour
         Invoke("disableMessege", 2);
     }
 
+    public void disableObjectInteraction() {
+        objectInteraction.gameObject.SetActive(false);
+    }
+
     void disableMessege() {
         DoorPuzzleMessege.gameObject.SetActive(false);
     }

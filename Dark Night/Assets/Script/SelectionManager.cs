@@ -13,7 +13,6 @@ public class SelectionManager : MonoBehaviour
 
     private void Awake() {
         uimanager = FindObjectOfType<UIManager>();
-        //animationManager = FindObjectOfType<AnimationManager>();
         door.doorOpened = false;
     }
 
