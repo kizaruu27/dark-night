@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    public Objects Key, objects, door, puzzleDoor;
+    public Objects EscapeKey, objects, door, puzzleDoor;
     public Text keyUI, description, objectInteraction, DoorPuzzleMessege;
     
 
@@ -14,7 +14,7 @@ public class UIManager : MonoBehaviour
     }
 
     void KeyUI() {
-        keyUI.text = "Owned Key: " + Key.keyCount;
+        keyUI.text = "Owned Key: " + EscapeKey.keyCount;
     }
 
     void turnOffDesc() {

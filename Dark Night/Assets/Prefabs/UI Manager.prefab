@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5615191458556624469
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5615191458556624475}
+  - component: {fileID: 5615191458556624474}
+  m_Layer: 0
+  m_Name: UI Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5615191458556624475
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5615191458556624469}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 17.302557, y: 0.13288753, z: -2.1540868}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5615191458556624474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5615191458556624469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 087731861e204dd42bcf8a584c7d57de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Key: {fileID: 11400000, guid: dc7b8313f507fc94a82917805b8cac27, type: 2}
+  objects: {fileID: 11400000, guid: 2f47ab154fac67e49943d27304636668, type: 2}
+  door: {fileID: 11400000, guid: 42ec03cf00041314a8d67ee059e2dd1a, type: 2}
+  puzzleDoor: {fileID: 11400000, guid: d59fa20c1ec3b4c41a36dc35581fc0c6, type: 2}
+  keyUI: {fileID: 0}
+  description: {fileID: 0}
+  objectInteraction: {fileID: 0}
+  DoorPuzzleMessege: {fileID: 0}

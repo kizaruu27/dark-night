@@ -9,6 +9,7 @@ public class Objects : ScriptableObject {
 
     [Header("Key")]
     public int keyCount;
+    public string keyWarning;
 
     [Header("Door")]
     public string doorOpenParameter;

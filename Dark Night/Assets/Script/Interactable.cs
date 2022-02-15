@@ -16,6 +16,7 @@ public class Interactable : MonoBehaviour
     }
 
     public void displayDescription() {
+        description.gameObject.SetActive(true);
         description.text = objects.description;
         Invoke("disableDesc", 2);
     }
