@@ -34,4 +34,8 @@ public class Objects : ScriptableObject {
     public bool musicOneisPlayed;
     public bool musicTwoisPlayed;
 
+    [Header("Flashlight")]
+    public float lightIntensity;
+    public bool isTurnOn;
+
 }
