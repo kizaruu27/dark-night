@@ -24,16 +24,9 @@ public class PickUp : MonoBehaviour
    }
 
    private void OnMouseUp() {
-       
-       var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-       RaycastHit hit;
-
-       if (Physics.Raycast(ray, out hit, 5)) {
-            this.transform.position = dropPosition.position;
-            this.transform.parent = GameObject.Find("DropPosition").transform;
-       } else {
+ 
            this.transform.parent = null;
-       }
+       
 
         GetComponent<Rigidbody>().useGravity = true;
         GetComponent<BoxCollider>().enabled = true;

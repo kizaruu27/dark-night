@@ -13,27 +13,17 @@ public class AudioPuzzle : MonoBehaviour
         musicPuzzle.musicOneisPlayed = false;
         musicPuzzle.musicTwoisPlayed = false;
     }
-
-    private void Update() {
-        Validation();
-    }
-
-    public void playMusicOne() {
+    public void playMusic(int clips) {
         aSource.Stop();
-        aSource.PlayOneShot(musicPuzzle.clips[0]);
-        musicPuzzle.musicOneisPlayed = true;
+        aSource.PlayOneShot(musicPuzzle.clips[clips]);
     }
 
-    public void playMusicTwo() {
+    public void playRightMusic(int clips) {
         aSource.Stop();
-        aSource.PlayOneShot(musicPuzzle.clips[1]);
-        musicPuzzle.musicTwoisPlayed = true;
+        aSource.PlayOneShot(musicPuzzle.clips[clips]);
+        Debug.Log("This is the right song");
     }
 
-    public void Validation() {
-        if (musicPuzzle.musicOneisPlayed && musicPuzzle.musicTwoisPlayed) {
-            Key.SetActive(true);
-        }
-    }
+
 
 }

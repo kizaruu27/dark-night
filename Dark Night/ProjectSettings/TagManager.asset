@@ -10,6 +10,7 @@ TagManager:
   - Cube Hijau
   - Door
   - Keypad
+  - LockedDoor
   layers:
   - Default
   - TransparentFX

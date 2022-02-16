@@ -5,15 +5,18 @@ using UnityEngine.Events;
 
 public class SelectionManager : MonoBehaviour
 {
-    public Objects door;
+    public Objects door, lockedDoor;
     private Transform _selection;
     UnityEvent onInteract;
     UIManager uimanager;
     AnimationManager animationManager;
+    Interactable interactable;
 
     private void Awake() {
         uimanager = FindObjectOfType<UIManager>();
         door.doorOpened = false;
+        lockedDoor.doorOpened = false;
+        lockedDoor.puzzleKeyPicked = false;
     }
 
     private void Update() {
@@ -65,6 +68,36 @@ public class SelectionManager : MonoBehaviour
                     }
                 }
             }
+
+            if (selection.CompareTag("LockedDoor")) {
+                if (door.doorOpened == false) {
+                    uimanager.doorOpenInteraction();
+                } else {
+                    uimanager.doorCloseInteraction();
+                }
+
+                if (hit.collider.GetComponent<Interactable>() != false) {
+                    onInteract = hit.collider.GetComponent<Interactable>().onInteract;
+                    animationManager = hit.collider.GetComponent<AnimationManager>();
+
+                    if (Input.GetKeyDown(KeyCode.E)) {
+                        if (lockedDoor.puzzleKeyPicked == true) {
+                            if (lockedDoor.doorOpened == false) {
+                                onInteract.Invoke();
+                                animationManager.openDoor();
+                                door.doorOpened = true;
+                            } else if (lockedDoor.doorOpened == true) {
+                                onInteract.Invoke();
+                                animationManager.closeDoor();
+                                door.doorOpened = false;
+                            }
+                        } else if(lockedDoor.puzzleKeyPicked == false) {
+                            hit.collider.GetComponent<Interactable>().displayDescription();
+                        }
+                    }    
+                }
+            }
+
                 _selection = selection;
         }
     }

@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class PuzzleManager : MonoBehaviour
 {
-     public Objects puzzle, door, keyPadObject;
+     public Objects puzzle, lockedDoor, keyPadObject;
      [SerializeField] GameObject doorOpen, doorClosed;
+     [SerializeField] Text Notification;
      public GameObject Keypad;
      UIManager uIManager; 
      AnimationManager anim;
@@ -15,7 +17,7 @@ public class PuzzleManager : MonoBehaviour
         anim = FindObjectOfType<AnimationManager>();
 
         puzzle.puzzleKey = 0;
-        puzzle.puzzleKeyPicked = false;
+        //puzzle.puzzleKeyPicked = false;
 
         keyPadObject.isUsingKeypad = false;
     }
@@ -25,8 +27,8 @@ public class PuzzleManager : MonoBehaviour
     }
 
     public void PickUpPuzzleKey() {
-        puzzle.puzzleKey++;
-        puzzle.puzzleKeyPicked = true;
+        lockedDoor.puzzleKey++;
+        lockedDoor.puzzleKeyPicked = true;
     }
 
     public void OpenDoor() {
@@ -55,4 +57,6 @@ public class PuzzleManager : MonoBehaviour
             Cursor.visible = false;   
         }
     }
+
+ 
 }

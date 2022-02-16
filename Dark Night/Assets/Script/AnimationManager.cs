@@ -11,6 +11,11 @@ public class AnimationManager : MonoBehaviour
     void Awake()
     {
         anim = GetComponent<Animator>();
+        Door.codeDoorOpen = false;
+    }
+
+    private void Update() {
+        openCodeDoor();
     }
 
     public void openDoor () {
@@ -27,5 +32,15 @@ public class AnimationManager : MonoBehaviour
 
     public void ClosePuzzleDoor() {
         anim.Play(Door.closePuzzleDoorParameter);
+    }
+
+    public void openCodeDoor() {
+        if (Door.codeDoorOpen == true) {
+            anim.Play(Door.codedDoorAnimationName);
+        }
+    }
+
+    public void musicBoxAnimation() {
+        anim.Play("MusicBoxAnim");
     }
 }

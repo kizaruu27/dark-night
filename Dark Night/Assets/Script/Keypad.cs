@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class Keypad : MonoBehaviour
 {
-    public Objects keyPadObject;
+    public Objects keyPadObject, codeDoor;
+
     [SerializeField] Text Answer;
 
     public void Number(int number) {
@@ -14,7 +15,7 @@ public class Keypad : MonoBehaviour
 
     public void Execute() {
         if (Answer.text == keyPadObject.ans) {
-            Debug.Log("Password Benar");
+            codeDoor.codeDoorOpen = true;
         } else {
             Debug.Log("Password Salah");
         }

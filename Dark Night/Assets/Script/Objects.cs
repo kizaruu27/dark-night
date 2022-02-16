@@ -22,6 +22,8 @@ public class Objects : ScriptableObject {
     public bool puzzleKeyPicked;
     public int puzzleKey;
     public string doorMessege;
+    public string KeyNotification;
+    public string DoorNotification;
     public string openPuzzleDoorParameter;
     public string closePuzzleDoorParameter;
     
@@ -37,5 +39,12 @@ public class Objects : ScriptableObject {
     [Header("Flashlight")]
     public float lightIntensity;
     public bool isTurnOn;
+
+    [Header("CodedDoor")]
+    public string codedDoorAnimationName;
+    public bool codeDoorOpen;
+    public string openCodeDoorDesc;
+
+   
 
 }

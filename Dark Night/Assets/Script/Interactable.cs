@@ -6,10 +6,16 @@ using UnityEngine.UI;
 
 public class Interactable : MonoBehaviour
 {
-    public Objects objects;
 
     public UnityEvent onInteract;
+    public Objects objects;
+
+    [Header("Description for Objects")]
     public Text description;
+
+    [Header("Notification for Door")]
+    public Text notification;
+
 
     public void destroyGameObject() {
         Destroy(gameObject);
@@ -18,11 +24,26 @@ public class Interactable : MonoBehaviour
     public void displayDescription() {
         description.gameObject.SetActive(true);
         description.text = objects.description;
+
+        if (objects.codeDoorOpen) {
+            description.text = objects.openCodeDoorDesc;
+        }
+
         Invoke("disableDesc", 2);
+    }
+
+    public void displayNotification() {
+        notification.gameObject.SetActive(true);
+        notification.text = objects.KeyNotification;
+        Invoke("disableNotification", 2);
     }
 
     void disableDesc() {
         description.gameObject.SetActive(false);
+    }
+
+    void disableNotification() {
+        notification.gameObject.SetActive(false);
     }
  
 }
