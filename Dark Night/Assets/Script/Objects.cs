@@ -45,6 +45,12 @@ public class Objects : ScriptableObject {
     public bool codeDoorOpen;
     public string openCodeDoorDesc;
 
+    [Header("GameOver")]
+    public bool isDeath;
+
+    [Header("Jumpscares")]
+    public AudioClip[] jumpScareClips;
+
    
 
 }

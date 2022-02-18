@@ -27,7 +27,7 @@ public class PuzzleManager : MonoBehaviour
     }
 
     public void PickUpPuzzleKey() {
-        lockedDoor.puzzleKey++;
+        lockedDoor.puzzleKey = 1;
         lockedDoor.puzzleKeyPicked = true;
     }
 

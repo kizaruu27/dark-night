@@ -34,8 +34,8 @@ public class Interactable : MonoBehaviour
 
     public void displayNotification() {
         notification.gameObject.SetActive(true);
-        notification.text = objects.KeyNotification;
-        Invoke("disableNotification", 2);
+        notification.text = objects.puzzleKey.ToString();
+        
     }
 
     void disableDesc() {
