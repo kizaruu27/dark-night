@@ -5,20 +5,20 @@ using UnityEngine;
 public class Flashlight : MonoBehaviour
 {
     public Objects flashlight;
-    Light light;
+    Light lights;
     void Start()
     {
         flashlight.isTurnOn = true;
-        light = GetComponent<Light>();
+        lights = GetComponent<Light>();
     }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.F) && flashlight.isTurnOn) {
-            light.intensity = 0;
+            lights.intensity = 0;
             flashlight.isTurnOn = false;
         } else if (Input.GetKeyDown(KeyCode.F) && !flashlight.isTurnOn) {
-            light.intensity = flashlight.lightIntensity;
+            lights.intensity = flashlight.lightIntensity;
             flashlight.isTurnOn = true;
         }
     }

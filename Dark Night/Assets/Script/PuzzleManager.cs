@@ -3,10 +3,10 @@ using UnityEngine.UI;
 
 public class PuzzleManager : MonoBehaviour
 {
-     public Objects puzzle, lockedDoor, keyPadObject;
+     public Objects puzzle, lockedDoor, keyPadObject, qwertyKeypadObject;
      [SerializeField] GameObject doorOpen, doorClosed;
      [SerializeField] Text Notification;
-     public GameObject Keypad;
+     public GameObject Keypad, qwertyKeypad;
      UIManager uIManager; 
      AnimationManager anim;
 
@@ -17,13 +17,6 @@ public class PuzzleManager : MonoBehaviour
         anim = FindObjectOfType<AnimationManager>();
 
         puzzle.puzzleKey = 0;
-        //puzzle.puzzleKeyPicked = false;
-
-        keyPadObject.isUsingKeypad = false;
-    }
-
-    private void Update() {
-        DisableKeypad();
     }
 
     public void PickUpPuzzleKey() {
@@ -41,22 +34,34 @@ public class PuzzleManager : MonoBehaviour
     }
 
     public void DisplayKeypad() {
-        keyPadObject.isUsingKeypad = true;
         Keypad.SetActive(true);
         Time.timeScale = 0;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
     }
 
-    void DisableKeypad() {
-        if (Input.GetKey(KeyCode.Escape) && keyPadObject.isUsingKeypad) {
-            keyPadObject.isUsingKeypad = false;
+    public void DisplayQwertyKeypad() {
+        qwertyKeypadObject.isUsingQwertyKeypad = true;
+        qwertyKeypad.SetActive(true);
+        Time.timeScale = 0;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
+    public void DisableKeypad() {
             Keypad.SetActive(false);
             Time.timeScale = 1;
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;   
-        }
     }
+
+    public void DisableQwertyKeypad (){
+            qwertyKeypad.SetActive(false);
+            Time.timeScale = 1;
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;  
+    }
+
 
  
 }

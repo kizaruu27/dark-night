@@ -16,8 +16,9 @@ public class Keypad : MonoBehaviour
     public void Execute() {
         if (Answer.text == keyPadObject.ans) {
             codeDoor.codeDoorOpen = true;
+            SoundManager.singleton.playSound(5);
         } else {
-            Debug.Log("Password Salah");
+            SoundManager.singleton.playSound(6);
         }
     }
 

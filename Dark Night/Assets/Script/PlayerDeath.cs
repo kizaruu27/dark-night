@@ -16,6 +16,8 @@ public class PlayerDeath : MonoBehaviour
 
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
+
+            SoundManager.singleton.playSound(3);
         }
     }
 }

@@ -7,7 +7,7 @@ public class Objects : ScriptableObject {
     public string description;
     public string objectInteractionText;
 
-    [Header("Key")]
+    [Header("1ey")]
     public int keyCount;
     public string keyWarning;
 
@@ -31,6 +31,10 @@ public class Objects : ScriptableObject {
     public string ans;
     public bool isUsingKeypad;
 
+    [Header("QwertyKeypad")]
+    public string answer;
+    public bool isUsingQwertyKeypad;
+
     [Header("Music Puzzle")]
     public AudioClip[] clips;
     public bool musicOneisPlayed;
@@ -51,6 +55,11 @@ public class Objects : ScriptableObject {
     [Header("Jumpscares")]
     public AudioClip[] jumpScareClips;
 
+    [Header("Sound Effect")]
+    public AudioClip[] soundEffectClips;
+
+    [Header("Killer")]
+    public bool isChasing;
    
 
 }

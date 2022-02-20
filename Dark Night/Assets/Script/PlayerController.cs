@@ -13,12 +13,14 @@ public class PlayerController : MonoBehaviour
     Vector2 currentDir = Vector2.zero;
     Vector2 currentDirVelocity = Vector2.zero;
     float velocityY = 0.0f;
-    bool isWalking = true;
+    AudioSource audioSource;
+    public bool isMoving;
 
     // Start is called before the first frame update
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        audioSource = GetComponent<AudioSource>();
         speed = baseSpeed;
     }
 
@@ -43,6 +45,8 @@ public class PlayerController : MonoBehaviour
         Vector3 velocity = (transform.forward * currentDir.y + transform.right * currentDir.x) * speed + Vector3.up * velocityY; 
 
         controller.Move(velocity * Time.deltaTime);
+
+        isMoving = true;    
 
         if (Input.GetKey(KeyCode.LeftShift)) {
             speed = runSpeed;
