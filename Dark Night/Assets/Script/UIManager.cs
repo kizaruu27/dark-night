@@ -5,12 +5,13 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    public Objects EscapeKey, objects, door, puzzleDoor;
-    public Text keyUI, description, objectInteraction, DoorPuzzleMessege;
+    public Objects EscapeKey, objects, door, puzzleDoor, Timer;
+    public Text keyUI, description, objectInteraction, DoorPuzzleMessege, killerText;
     
 
     private void Update() {
         KeyUI();
+        TimesUp();
     }
 
     void KeyUI() {
@@ -48,5 +49,16 @@ public class UIManager : MonoBehaviour
 
     void disableMessege() {
         DoorPuzzleMessege.gameObject.SetActive(false);
+    }
+
+    void TimesUp() {
+        if (Timer.currentTime <= 0) {
+            killerText.text = "The Killer is searching for you!";
+            Invoke("DisableKillerText", 3);
+        }
+    }
+
+    void DisableKillerText() {
+        killerText.gameObject.SetActive(false);
     }
 }

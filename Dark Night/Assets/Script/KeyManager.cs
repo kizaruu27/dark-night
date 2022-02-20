@@ -23,6 +23,8 @@ public class KeyManager : MonoBehaviour
         if (Key.keyCount == 5) {
             Time.timeScale = 0;
             EscapeText.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         } else {
             description.text = Key.description;
         }

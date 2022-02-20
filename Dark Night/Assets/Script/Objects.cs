@@ -7,7 +7,7 @@ public class Objects : ScriptableObject {
     public string description;
     public string objectInteractionText;
 
-    [Header("1ey")]
+    [Header("Key")]
     public int keyCount;
     public string keyWarning;
 
@@ -60,6 +60,10 @@ public class Objects : ScriptableObject {
 
     [Header("Killer")]
     public bool isChasing;
+
+    [Header("Timer")]
+    public float currentTime;
+    public float startingTime;
    
 
 }

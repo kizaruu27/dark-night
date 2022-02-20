@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bd0fcd6989139ab4d8fca82fa8d02f90, type: 3}
-  m_Name: EscapeKey
+  m_Name: Timer
   m_EditorClassIdentifier: 
-  description: I don't have enough key.
-  objectInteractionText: Press E to Pick Up
+  description: 
+  objectInteractionText: 
   keyCount: 0
   keyWarning: 
   doorOpenParameter: 
@@ -44,5 +44,5 @@ MonoBehaviour:
   jumpScareClips: []
   soundEffectClips: []
   isChasing: 0
-  currentTime: 0
-  startingTime: 0
+  currentTime: 47.14824
+  startingTime: 60
