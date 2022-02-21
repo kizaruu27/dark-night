@@ -49,6 +49,10 @@ public class AnimationManager : MonoBehaviour
     }
 
     public void musicBoxAnimation() {
+        Invoke("PlayMusicBox" ,5);
+    }
+
+    void PlayMusicBox() {
         anim.Play("MusicBoxAnim");
     }
 }

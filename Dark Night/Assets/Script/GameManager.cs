@@ -15,14 +15,6 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("Menu");
     }
 
-    public void Retry() {
-        SceneManager.LoadScene("Gameplay");
-    }
-
-    public void PlayGame() {
-        SceneManager.LoadScene("Gameplay");
-    }
-
     public void ExitGame() {
         Application.Quit();
     }

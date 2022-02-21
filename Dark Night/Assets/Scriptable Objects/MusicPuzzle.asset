@@ -15,6 +15,7 @@ MonoBehaviour:
   description: 
   objectInteractionText: 
   keyCount: 0
+  keyWarning: 
   doorOpenParameter: 
   doorCloseParameter: 
   openDoorInteraction: 
@@ -23,12 +24,31 @@ MonoBehaviour:
   puzzleKeyPicked: 0
   puzzleKey: 0
   doorMessege: 
+  KeyNotification: 
+  DoorNotification: 
   openPuzzleDoorParameter: 
   closePuzzleDoorParameter: 
   ans: 
   isUsingKeypad: 0
+  answer: 
+  isUsingQwertyKeypad: 0
   clips:
   - {fileID: 8300000, guid: 0d7c43c0af655374391a915c88c0cd0d, type: 3}
-  - {fileID: 8300000, guid: e1fa8100c1bbe1047832332d67ddb062, type: 3}
+  - {fileID: 8300000, guid: 89beae4a004b4be44b729f49b30c8efb, type: 3}
+  - {fileID: 8300000, guid: 446cfa2c415412546a704c679feb7fe6, type: 3}
+  - {fileID: 8300000, guid: b2ae97554742cf04fa365111ef1d80fe, type: 3}
+  - {fileID: 8300000, guid: daca367a6f09b374e9fcf45f39b7a3f8, type: 3}
+  - {fileID: 8300000, guid: a33182816703ca24fb188e1c9f903000, type: 3}
   musicOneisPlayed: 0
   musicTwoisPlayed: 0
+  lightIntensity: 0
+  isTurnOn: 0
+  codedDoorAnimationName: 
+  codeDoorOpen: 0
+  openCodeDoorDesc: 
+  isDeath: 0
+  jumpScareClips: []
+  soundEffectClips: []
+  isChasing: 0
+  currentTime: 0
+  startingTime: 0
