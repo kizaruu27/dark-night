@@ -50,4 +50,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 54e6dd3e7c40c704db58c511afebe1f1, type: 3}
   - {fileID: 8300000, guid: 7e768d90857507f44b319c6208245a05, type: 3}
   - {fileID: 8300000, guid: 6781f3d5911b2b644ab069e60d556ec3, type: 3}
+  - {fileID: 8300000, guid: edc252734017faf489509004ce74e2dd, type: 3}
   isChasing: 0
+  currentTime: 0
+  startingTime: 0

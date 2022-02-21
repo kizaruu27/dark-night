@@ -22,6 +22,7 @@ public class PuzzleManager : MonoBehaviour
     public void PickUpPuzzleKey() {
         lockedDoor.puzzleKey = 1;
         lockedDoor.puzzleKeyPicked = true;
+        SoundManager.singleton.playSound(7);
     }
 
     public void OpenDoor() {

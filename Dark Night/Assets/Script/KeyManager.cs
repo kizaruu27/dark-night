@@ -17,6 +17,7 @@ public class KeyManager : MonoBehaviour
 
     public void pickUpKey() {
         Key.keyCount++;
+        SoundManager.singleton.playSound(7);
     }
 
     public void EscapeHouse() {

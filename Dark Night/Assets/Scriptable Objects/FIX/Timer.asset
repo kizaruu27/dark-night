@@ -44,5 +44,5 @@ MonoBehaviour:
   jumpScareClips: []
   soundEffectClips: []
   isChasing: 0
-  currentTime: 47.14824
-  startingTime: 60
+  currentTime: 172.35759
+  startingTime: 120
