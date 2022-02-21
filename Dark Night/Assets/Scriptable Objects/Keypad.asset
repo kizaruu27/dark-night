@@ -15,6 +15,7 @@ MonoBehaviour:
   description: 
   objectInteractionText: 
   keyCount: 0
+  keyWarning: 
   doorOpenParameter: 
   doorCloseParameter: 
   openDoorInteraction: 
@@ -23,7 +24,25 @@ MonoBehaviour:
   puzzleKeyPicked: 0
   puzzleKey: 0
   doorMessege: 
+  KeyNotification: 
+  DoorNotification: 
   openPuzzleDoorParameter: 
   closePuzzleDoorParameter: 
-  ans: 1234
+  ans: 271100
   isUsingKeypad: 0
+  answer: 
+  isUsingQwertyKeypad: 0
+  clips: []
+  musicOneisPlayed: 0
+  musicTwoisPlayed: 0
+  lightIntensity: 0
+  isTurnOn: 0
+  codedDoorAnimationName: 
+  codeDoorOpen: 0
+  openCodeDoorDesc: 
+  isDeath: 0
+  jumpScareClips: []
+  soundEffectClips: []
+  isChasing: 0
+  currentTime: 0
+  startingTime: 0
