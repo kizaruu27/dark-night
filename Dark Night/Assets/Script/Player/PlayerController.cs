@@ -14,7 +14,6 @@ public class PlayerController : MonoBehaviour
     AudioSource audioSource;
     public bool isMoving;
 
-    // Start is called before the first frame update
     void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -22,30 +21,31 @@ public class PlayerController : MonoBehaviour
         speed = baseSpeed;
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         Move();
     }
 
     void Move() {
+        //Movement Input
         Vector2 targetDir = new Vector2 (Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         targetDir.Normalize();
 
+        //Movement Smoothness
         currentDir = Vector2.SmoothDamp(currentDir, targetDir, ref currentDirVelocity, moveSmoothTime);
 
+        //Gravity
         if (controller.isGrounded) {
             velocityY = 0.0f;
         }
-
         velocityY += gravity * Time.deltaTime;
 
+        //Move
         Vector3 velocity = (transform.forward * currentDir.y + transform.right * currentDir.x) * speed + Vector3.up * velocityY; 
-
         controller.Move(velocity * Time.deltaTime);
 
-        isMoving = true;    
-
+        //Player Run
         if (Input.GetKey(KeyCode.LeftShift)) {
             speed = runSpeed;
         } else if (Input.GetKeyUp(KeyCode.LeftShift)) {

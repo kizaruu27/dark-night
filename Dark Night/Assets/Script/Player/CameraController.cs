@@ -27,14 +27,20 @@ public class CameraController : MonoBehaviour
     }
 
     void mouseLook() {
+        //Mouse Input
         Vector2 targetMouseDelta = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
 
+        //Camera Smoothness
         currentMouseDelta = Vector2.SmoothDamp(currentMouseDelta, targetMouseDelta, ref currentMouseDeltaVelocity, cameraSmoothTime);
+
+        //Camera Offset
         cameraPitch -= currentMouseDelta.y * camerSensivity;
         cameraPitch = Mathf.Clamp(cameraPitch, -90f, 90f);
 
+        //Vertical Camera
         playerCamera.localEulerAngles = Vector3.right * cameraPitch;
 
+        //Horizontal Camera
         transform.Rotate(Vector3.up * currentMouseDelta.x * camerSensivity);
     }
 }
